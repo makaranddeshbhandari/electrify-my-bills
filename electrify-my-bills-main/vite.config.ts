@@ -10,12 +10,10 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   preview: {
-    host: "::",
+    host: "0.0.0.0",
     port: 4173,
-    allowedHosts: [
-      "electrify-my-bills.onrender.com",
-      ".onrender.com",
-    ],
+    strictPort: false,
+    allowedHosts: () => true,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
